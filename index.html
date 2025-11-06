@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B12 ANIME - أفضل منصة لمشاهدة الأنمي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* كل الأنماط السابقة هنا */
+        :root {
+            --primary-color: #0a0e14;
+            --secondary-color: #1a1f2b;
+            --accent-color: #ff2e63;
+            --accent-secondary: #08d9d6;
+            --text-color: #ffffff;
+            --text-secondary: #b0b3b8;
+            --card-bg: rgba(30, 35, 45, 0.95);
+            --card-hover: rgba(40, 45, 55, 0.98);
+            --gradient: linear-gradient(135deg, #ff2e63 0%, #08d9d6 100%);
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            min-height: 100vh;
+            background: linear-gradient(160deg, var(--primary-color) 0%, #151a25 100%);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(26, 31, 43, 0.95);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .logo {
+            font-size: 2.4rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 12px 24px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-color);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: var(--gradient);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .search-section {
+            margin: 40px auto;
+            max-width: 800px;
+        }
+
+        .search-container {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 5px;
+            border: 2px solid var(--glass-border);
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 20px 60px 20px 30px;
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.1rem;
+            outline: none;
+        }
+
+        .search-btn {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--gradient);
+            border: none;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .anime-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .anime-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s;
+            border: 1px solid var(--glass-border);
+        }
+
+        .anime-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+        }
+
+        .anime-image {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+        }
+
+        .anime-info {
+            padding: 25px;
+        }
+
+        .anime-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .anime-desc {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .watch-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .watch-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px;
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+        }
+
+        .loading i {
+            margin-left: 12px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .anime-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-play-circle"></i>
+                B12 ANIME
+            </div>
+            
+            <nav class="nav-links">
+                <button class="nav-btn active">
+                    <i class="fas fa-home"></i> الرئيسية
+                </button>
+                <button class="nav-btn">
+                    <i class="fas fa-fire"></i> الأكثر مشاهدة
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>انطلق في عالم الأنمي الرائع</h1>
+            <p>منصة B12 ANIME تقدم لك أفضل تجربة لمشاهدة الأنمي بدون إعلانات وبجودة عالية.</p>
+        </div>
+    </section>
+
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <input type="text" class="search-box" id="search" placeholder="ابحث عن أنمي...">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="anime-grid" id="animeContainer">
+            <div class="loading">
+                <i class="fas fa-spinner fa-spin"></i>
+                جاري تحميل الأنمي...
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // قاعدة بيانات الأنمي مع روابط مباشرة للصفحة الرئيسية لـ AnimeMH
+        const animeDatabase = [
+            {
+                id: 1,
+                title: "ناروتو شيبودن",
+                description: "قصة ناروتو أوزوماكي في رحلته ليصبح الهوكاجي السابع ويحمي قرية الورق من الأخطار.",
+                image: "https://cdn.myanimelist.net/images/anime/1565/111305.jpg",
+                watchUrl: "https://animemh.com/",
+                type: "مسلسل",
+                episodes: "500",
+                year: "2007"
+            },
+            {
+                id: 2,
+                title: "هجوم العمالقة",
+                description: "في عالم حيث البشرية تعيش داخل مدن محاطة بأسوار ضخمة للحماية من العمالقة العملاقة.",
+                image: "https://cdn.myanimelist.net/images/anime/10/47347.jpg",
+                watchUrl: "https://animemh.com/",
+                type: "مسلسل", 
+                episodes: "75",
+                year: "2013"
+            },
+            {
+                id: 3,
+                title: "ون بيس",
+                description: "مغامرات مونكي دي لوفي وطاقه القراصنة في البحث عن الكنز الأسطوري ون بيس.",
+                image: "https://cdn.myanimelist.net/images/anime/6/73245.jpg",
+                watchUrl: "https://animemh.com/",
+                type: "مسلسل",
+                episodes: "1100+",
+                year: "1999"
+            },
+            {
+                id: 4,
+                title: "قاتل الشياطين",
+                description: "تانجيرو كامادو في مهمته للقضاء على الشياطين وإنقاذ أخته نيزوكو التي تحولت إلى شيطان.",
+                image: "https://cdn.myanimelist.net/images/anime/1286/99889.jpg",
+                watchUrl: "https://animemh.com/",
+                type: "مسلسل",
+                episodes: "55",
+                year: "2019"
+            },
+            {
+                id: 5,
+                title: "جيوجوتسو كايسن",
+                description: "يوجي إيتادوري ينضم إلى عالم سحرة الجيوجوتسو لمحاربة اللعنات الخطيرة وحماية البشرية.",
+                image: "https://cdn.myanimelist.net/images/anime/1171/109222.jpg",
+                watchUrl: "https://animemh.com/",
+                type: "مسلسل",
+                episodes: "47",
+                year: "2020"
+            },
+            {
+                id: 6,
+                title: "ماي هيرو أكاديميا",
+                description: "إيزوكو ميدوريا في رحلته ليصبح أعظم بطل في أكاديمية يو أي للمواهب الخارقة.",
+                image: "https://cdn.myanimelist.net/images/anime/10/78745.jpg",
+                watchUrl: "https://animemh.com/",
+                type: "مسلسل",
+                episodes: "138",
+                year: "2016"
+            },
+            {
+                id: 7,
+                title: "بليتش",
+                description: "مغامرات إيتشيغو كوروساكي كشينيغامي يحمي العالم من الأرواح الشريرة والهولوز.",
+                image: "https://cdn.myanimelist.net/images/anime/3/40451.jpg",
+                watchUrl: "https://animemh.com/",
+                type: "مسلسل",
+                episodes: "366",
+                year: "2004"
+            },
+            {
+                id: 8,
+                title: "دراغون بول سوبر",
+                description: "استمرار مغامرات غوكو وأصدقائه في الأكوان المتعددة والمواجهات الأسطورية.",
+                image: "https://cdn.myanimelist.net/images/anime/7/85406.jpg",
+                watchUrl: "https://animemh.com/",
+                type: "مسلسل",
+                episodes: "131",
+                year: "2015"
+            },
+            {
+                id: 9,
+                title: "هانتر x هانتر",
+                description: "مغامرات غون فريكس في امتحان الهانتر واكتشاف العالم الخفي والمواهب الخارقة.",
+                image: "https://cdn.myanimelist.net/images/anime/11/33657.jpg",
+                watchUrl: "https://animemh.com/",
+                type: "مسلسل",
+                episodes: "148",
+                year: "2011"
+            },
+            {
+                id: 10,
+                title: "فايري تيل",
+                description: "مغامرات لوسي وناتس في نقابة فايري تيل للسحرة والأعداء الأقوياء.",
+                image: "https://cdn.myanimelist.net/images/anime/5/18179.jpg",
+                watchUrl: "https://animemh.com/",
+                type: "مسلسل",
+                episodes: "328",
+                year: "2009"
+            },
+            {
+                id: 11,
+                title: "بلاك كلوفر",
+                description: "أستا في رحلته ليصبح ساحر الإمبراطور في عالم السحر والقتال ضد الأشرار.",
+                image: "https://cdn.myanimelist.net/images/anime/2/88336.jpg",
+                watchUrl: "https://animemh.com/",
+                type: "مسلسل",
+                episodes: "170",
+                year: "2017"
+            },
+            {
+                id: 12,
+                title: "سول إيتر",
+                description: "مغامرات ماكا ألبارن في أكاديمية DWMA لمحاربة الأرواح الشريرة والسحرة.",
+                image: "https://cdn.myanimelist.net/images/anime/9/20969.jpg",
+                watchUrl: "https://animemh.com/",
+                type: "مسلسل",
+                episodes: "51",
+                year: "2008"
+            }
+        ];
+
+        // عناصر DOM
+        const animeContainer = document.getElementById('animeContainer');
+        const searchBox = document.getElementById('search');
+
+        // عرض الأنمي
+        function renderAnime(animeList = animeDatabase) {
+            animeContainer.innerHTML = '';
+            
+            animeList.forEach(anime => {
+                const animeCard = document.createElement('div');
+                animeCard.className = 'anime-card';
+                
+                animeCard.innerHTML = `
+                    <img src="${anime.image}" alt="${anime.title}" class="anime-image" 
+                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjM4MCIgdmlld0JveD0iMCAwIDMwMCAzODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzgwIiBmaWxsPSIjMWExZjJiIi8+CjxwYXRoIGQ9Ik0xNTAgMTkwVjE2MEwxNzAgMTc1TDE1MCAxOTBaIiBmaWxsPSIjZmYyZTYzIi8+Cjx0ZXh0IHg9IjE1MCIgeT0iMjUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjZTBlMWU2IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTgiPkJJVEEgQU5JTUU8L3RleHQ+Cjwvc3ZnPgo='">
+                    <div class="anime-info">
+                        <h3 class="anime-title">${anime.title}</h3>
+                        <div style="display: flex; gap: 15px; margin-bottom: 15px; flex-wrap: wrap;">
+                            <span style="background: var(--accent-color); padding: 4px 12px; border-radius: 8px; font-size: 0.9rem;">
+                                ${anime.type}
+                            </span>
+                            <span style="color: var(--text-secondary); font-size: 0.9rem;">
+                                <i class="fas fa-play-circle"></i> ${anime.episodes}
+                            </span>
+                            <span style="color: var(--text-secondary); font-size: 0.9rem;">
+                                <i class="fas fa-calendar"></i> ${anime.year}
+                            </span>
+                        </div>
+                        <p class="anime-desc">${anime.description}</p>
+                        <a href="${anime.watchUrl}" target="_blank" class="watch-btn">
+                            <i class="fas fa-play"></i> شاهد الآن على AnimeMH
+                        </a>
+                    </div>
+                `;
+                animeContainer.appendChild(animeCard);
+            });
+        }
+
+        // البحث
+        function searchAnime() {
+            const searchTerm = searchBox.value.toLowerCase();
+            if (searchTerm === '') {
+                renderAnime();
+                return;
+            }
+
+            const filteredAnime = animeDatabase.filter(anime => 
+                anime.title.toLowerCase().includes(searchTerm) ||
+                anime.description.toLowerCase().includes(searchTerm)
+            );
+            
+            renderAnime(filteredAnime);
+        }
+
+        // إضافة مستمعي الأحداث
+        searchBox.addEventListener('input', searchAnime);
+
+        // بدء التطبيق
+        setTimeout(() => {
+            renderAnime();
+        }, 1000);
+
+        console.log('🚀 B12 ANIME جاهز للتشغيل!');
+        console.log('📺 جميع الروابط تؤدي مباشرة إلى الصفحة الرئيسية لـ AnimeMH');
+        console.log('🎯 اضغط على "شاهد الآن" للانتقال إلى AnimeMH');
+    </script>
+</body>
+</html>
